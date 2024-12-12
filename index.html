@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Passenger Counter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+    .counter-container {
+      text-align: center;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    h1 {
+      margin: 0 0 20px;
+    }
+    .count-display {
+      font-size: 3em;
+      margin: 20px 0;
+      color: #333;
+    }
+    button {
+      font-size: 1em;
+      padding: 10px 20px;
+      margin: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      color: #fff;
+    }
+    .increase-btn {
+      background-color: #28a745;
+    }
+    .decrease-btn {
+      background-color: #dc3545;
+    }
+    .reset-btn {
+      background-color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+<!--what you should expect, is a counting interface whereby we can increase, reduce
+and reset our passenger count. Imagine a passenger highlighting and dropping from a taxi -->> 
+  <div class="counter-container">
+    <h1>Passenger Counter</h1>
+    <div class="count-display" id="count">0</div>
+    <button class="increase-btn" id="increase">Increase</button>
+    <button class="decrease-btn" id="decrease">Decrease</button>
+    <button class="reset-btn" id="reset">Reset</button>
+  </div>
+
+  <script>
+    // this is the initial count, we have no passengers
+    let count = 0;
+
+    // Selecting the elements of our DOM
+    const countDisplay = document.getElementById('count');
+    const increaseBtn = document.getElementById('increase');
+    const decreaseBtn = document.getElementById('decrease');
+    const resetBtn = document.getElementById('reset');
+
+    // lets update the display
+    const updateDisplay = () => {
+      countDisplay.textContent = count;
+    };
+
+    // Increase 
+    increaseBtn.addEventListener('click', () => {
+      count++;
+      updateDisplay();
+    });
+
+    // We create a decrease button functionality
+    decreaseBtn.addEventListener('click', () => {
+      if (count > 0) count--;
+      updateDisplay();
+    });
+
+    // we create reset button functionality
+    resetBtn.addEventListener('click', () => {
+      count = 0;
+      updateDisplay();
+    });
+  </script>
+</body>
+</html>
